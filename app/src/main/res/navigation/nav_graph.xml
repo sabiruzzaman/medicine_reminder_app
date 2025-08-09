@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/medicineReminderListFragment"
-        android:name="com.example.medicinereminderapp.presentation.list.MedicineReminderListFragment"
+        android:name="com.example.medicinereminderapp.presentation.ui.MedicineReminderListFragment"
         android:label="fragment_medicine_reminder_list"
         tools:layout="@layout/fragment_medicine_reminder_list" >
         <action
@@ -18,7 +18,7 @@
 
     <fragment
         android:id="@+id/addOrEditMedicineReminderFragment"
-        android:name="com.example.medicinereminderapp.presentation.add_edit.AddOrEditMedicineReminderFragment"
+        android:name="com.example.medicinereminderapp.presentation.ui.AddOrEditMedicineReminderFragment"
         android:label="fragment_add_or_edit_medicine_reminder"
         tools:layout="@layout/fragment_add_or_edit_medicine_reminder" />
 

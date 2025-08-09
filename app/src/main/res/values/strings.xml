@@ -1,23 +1,25 @@
 <resources>
+
     <string name="app_name">Medicine Reminder App</string>
     <string name="floating_action_button">Floating action button</string>
     <string name="delete_reminder_icon">Delete Reminder Icon</string>
     <string name="edit_reminder_icon">Edit Reminder Icon</string>
     <string name="schedule_reminder_icon">Schedule Reminder Icon</string>
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="save">Save</string>
     <string name="back_button">Back Button</string>
     <string name="add_medicine_reminder">Add Medicine Reminder</string>
     <string name="edit_medicine_reminder">Edit Medicine Reminder</string>
     <string name="select_time">Select Time</string>
     <string name="select_date">Select Date</string>
-
-
     <string name="required_field">Required</string>
     <string name="pick_date_time">Please pick both date and time</string>
     <string name="time_in_past">Selected time is in the past</string>
     <string name="no_medicine_reminders_found">No Medicine reminders found</string>
-
+    <string name="snooze">Snooze</string>
+    <string name="snoozed_text">We’ll remind you again in 10 minutes.</string>
+    <string name="take_medicine">Time to take your medicine</string>
+    <string name="done">Done</string>
+    <string name="close">Close</string>
+    <string name="taken">Taken</string>
 
 </resources>

@@ -5,7 +5,7 @@ import java.util.Date
 
 object ReminderFactory {
     fun newOrEdit(
-        id: Int?,            // null or 0 means "new"
+        id: Int?, // null or 0 means "new"
         name: String,
         dosage: String,
         date: Date,

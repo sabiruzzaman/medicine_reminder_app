@@ -34,5 +34,4 @@ object DataModule {
         return ReminderRepoImpl(reminderDao)
     }
 
-
 }
