@@ -17,21 +17,42 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:paddingVertical="8dp"
-            android:text="Reminder One"
-            android:textSize="16sp"
-            app:layout_constraintEnd_toStartOf="@+id/schedule_reminder_button"
+            android:text="Napa Extra"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toStartOf="@+id/edit_reminder_button"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/reminder_dosage"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:text="2 tablets"
+            android:textStyle="italic"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reminder_name" />
+
 
         <TextView
             android:id="@+id/reminder_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
             android:text="11.00 AM"
             android:textSize="22sp"
             android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/reminder_dosage"
+            app:layout_constraintTop_toBottomOf="@+id/reminder_dosage" />
+
+        <TextView
+            android:id="@+id/reminder_date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="22 July, 2025"
+
             app:layout_constraintStart_toStartOf="@id/reminder_name"
-            app:layout_constraintTop_toBottomOf="@+id/reminder_name" />
+            app:layout_constraintTop_toBottomOf="@+id/reminder_time" />
 
 
         <ImageView
@@ -53,17 +74,6 @@
             android:padding="8dp"
             android:src="@drawable/ic_edit"
             app:layout_constraintEnd_toStartOf="@id/delete_reminder_button"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <ImageView
-            android:id="@+id/schedule_reminder_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
-            android:contentDescription="@string/schedule_reminder_icon"
-            android:padding="8dp"
-            android:src="@drawable/ic_schedule"
-            app:layout_constraintEnd_toStartOf="@id/edit_reminder_button"
             app:layout_constraintTop_toTopOf="parent" />
 
 

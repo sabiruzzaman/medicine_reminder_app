@@ -20,9 +20,8 @@ interface ReminderDao {
     @Update
     suspend fun update(reminder: Reminder)
 
-    @Query("SELECT * FROM Reminder ORDER BY timeInMillis DESC")
+    @Query("SELECT * FROM Reminder ORDER BY reminderDateTime ASC")
     fun getAllReminders(): Flow<List<Reminder>>
-
 
 
 }
