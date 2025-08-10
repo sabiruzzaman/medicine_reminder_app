@@ -10,6 +10,8 @@ material = "1.12.0"
 activity = "1.10.1"
 constraintlayout = "2.2.1"
 navigation = "2.9.3"
+coroutines = "1.10.2"
+
 
 
 [libraries]
@@ -22,6 +24,11 @@ material = { group = "com.google.android.material", name = "material", version.r
 androidx-activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
 androidx-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 
+
+mockk = { module = "io.mockk:mockk", version = "1.14.5" }
+kotlinx-coroutines-test = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-test", version.ref = "coroutines" }
+androidx-core-testing = { module = "androidx.arch.core:core-testing", version = "2.2.0" }
+androidx-room-testing = { module = "androidx.room:room-testing", version = "2.6.1" }
 
 dagger-hilt = { module = "com.google.dagger:hilt-android", version = "2.50" }
 dagger-hilt-testing = { module = "com.google.dagger:hilt-android-testing", version = "2.50" }
