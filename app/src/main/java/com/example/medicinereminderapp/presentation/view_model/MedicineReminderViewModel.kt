@@ -1,4 +1,4 @@
-package com.example.medicinereminderapp.presentation
+package com.example.medicinereminderapp.presentation.view_model
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -21,7 +21,7 @@ class MedicineReminderViewModel @Inject constructor(
     private val insertUseCase: InsertUseCase,
     private val updateUseCase: UpdateUseCase,
     private val deleteUseCase: DeleteUseCase,
-    private val getAllReminderUseCase: GetAllReminderUseCase
+    private val getAllReminderUseCase: GetAllReminderUseCase,
 ) : ViewModel() {
 
     private val _state = MutableLiveData(UiState())

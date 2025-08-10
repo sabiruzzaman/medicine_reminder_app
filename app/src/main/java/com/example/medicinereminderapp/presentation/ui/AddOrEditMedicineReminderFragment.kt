@@ -1,4 +1,4 @@
-package com.example.medicinereminderapp.presentation.add_edit
+package com.example.medicinereminderapp.presentation.ui
 
 import android.os.Bundle
 import android.view.View
@@ -8,11 +8,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.medicinereminderapp.R
 import com.example.medicinereminderapp.databinding.FragmentAddOrEditMedicineReminderBinding
 import com.example.medicinereminderapp.domain.model.Reminder
-import com.example.medicinereminderapp.presentation.MedicineReminderViewModel
+import com.example.medicinereminderapp.presentation.view_model.MedicineReminderViewModel
 import com.example.medicinereminderapp.utils.DateTimePickerHelper
 import com.example.medicinereminderapp.utils.DateTimeUtils
 import com.example.medicinereminderapp.utils.FormUtils
 import com.example.medicinereminderapp.utils.ReminderFactory
+import com.example.medicinereminderapp.utils.setUpAlarmWithPermissionCheck
 import com.example.medicinereminderapp.utils.toast
 import dagger.hilt.android.AndroidEntryPoint
 import java.util.Date
@@ -101,9 +102,14 @@ class AddOrEditMedicineReminderFragment
                 date = finalDate
             )
 
-            if (editingId == null) viewModel.saveReminder(reminder) else viewModel.update(reminder)
+            if (editingId == null) {
+                viewModel.saveReminder(reminder)
+            } else {
+                viewModel.update(reminder)
+            }
 
-
+             // Set up the alarm
+            setUpAlarmWithPermissionCheck(requireContext(), reminder)
             findNavController().navigateUp()
         }
     }

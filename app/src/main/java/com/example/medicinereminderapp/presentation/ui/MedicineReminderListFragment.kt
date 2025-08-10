@@ -1,16 +1,14 @@
-package com.example.medicinereminderapp.presentation.list
+package com.example.medicinereminderapp.presentation.ui
 
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.medicinereminderapp.R
 import com.example.medicinereminderapp.databinding.FragmentMedicineReminderListBinding
 import com.example.medicinereminderapp.domain.model.Reminder
-import com.example.medicinereminderapp.presentation.MedicineReminderViewModel
+import com.example.medicinereminderapp.presentation.view_model.MedicineReminderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -37,11 +35,8 @@ class MedicineReminderListFragment : Fragment(R.layout.fragment_medicine_reminde
             onEditReminder = { reminder -> navigateToAddEdit(reminder) },
             onDeleteReminder = { reminder -> viewModel.delete(reminder) }
         )
-        reminderRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         reminderRecyclerView.adapter = adapter
-        reminderRecyclerView.addItemDecoration(
-            DividerItemDecoration(requireContext(), DividerItemDecoration.VERTICAL)
-        )
+
     }
 
     private fun setupClicks() = with(binding) {
