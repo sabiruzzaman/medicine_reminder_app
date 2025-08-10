@@ -40,6 +40,58 @@ Scheduling is centralized: creating/updating a reminder writes to Room and (re)s
 
 ---
 
+## 📦 Project Structure
+```
+com/example/medicinereminderapp/
+ ├─ data/
+ │   ├─ di/
+ │   │   └─ DataModule.kt
+ │   ├─ local/
+ │   │   ├─ DateConverter.kt
+ │   │   ├─ ReminderDao.kt
+ │   │   └─ ReminderDatabase.kt
+ │   └─ repository/
+ │       └─ ReminderRepoImpl.kt
+ │
+ ├─ domain/
+ │   ├─ model/
+ │   │   └─ Reminder.kt
+ │   ├─ repository/
+ │   │   └─ ReminderRepository.kt
+ │   └─ use_cases/
+ │       ├─ DeleteUseCase.kt
+ │       ├─ GetAllReminderUseCase.kt
+ │       ├─ InsertUseCase.kt
+ │       └─ UpdateUseCase.kt
+ │
+ ├─ presentation/
+ │   ├─ common/
+ │   │   ├─ ReminderReceiver.kt
+ │   │   └─ UIState.kt
+ │   ├─ ui/
+ │   │   ├─ AddOrEditMedicineReminderFragment.kt
+ │   │   ├─ MedicineReminderAdapter.kt
+ │   │   └─ MedicineReminderListFragment.kt
+ │   ├─ view_model/
+ │   │   └─ MedicineReminderViewModel.kt
+ │   └─ MainActivity.kt
+ │
+ ├─ utils/
+ │   ├─ AlarmSound.kt
+ │   ├─ AlarmUtils.kt
+ │   ├─ DateTimePickerHelper.kt
+ │   ├─ DateTimeUtils.kt
+ │   ├─ FormUtils.kt
+ │   ├─ ReminderFactory.kt
+ │   └─ ViewExt.kt
+ │
+ ├─ MedicineReminderApp.kt
+ ├─ res/                
+ └─ AndroidManifest.xml
+```
+
+---
+
 ## 🛠 Tech Stack
 
 | Layer                | Technology |
