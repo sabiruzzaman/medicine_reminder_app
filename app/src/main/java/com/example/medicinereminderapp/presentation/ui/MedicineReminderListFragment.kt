@@ -1,5 +1,6 @@
 package com.example.medicinereminderapp.presentation.ui
 
+
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -10,7 +11,11 @@ import com.example.medicinereminderapp.databinding.FragmentMedicineReminderListB
 import com.example.medicinereminderapp.domain.model.Reminder
 import com.example.medicinereminderapp.domain.model.ReminderMode
 import com.example.medicinereminderapp.presentation.view_model.MedicineReminderViewModel
+import com.example.medicinereminderapp.utils.cancelAlarm
 import dagger.hilt.android.AndroidEntryPoint
+
+import com.example.medicinereminderapp.utils.setUpAlarm
+
 
 @AndroidEntryPoint
 class MedicineReminderListFragment : Fragment(R.layout.fragment_medicine_reminder_list) {
@@ -36,16 +41,38 @@ class MedicineReminderListFragment : Fragment(R.layout.fragment_medicine_reminde
             onEditReminder = { reminder -> navigateToAddEdit(reminder) },
             onDeleteReminder = { reminder -> viewModel.delete(reminder) },
             onSoundMode = { reminder ->
-                val newMode = when (reminder.mode) {
-                    ReminderMode.SOUND -> ReminderMode.VIBRATE
-                    ReminderMode.VIBRATE -> ReminderMode.SILENT
-                    ReminderMode.SILENT -> ReminderMode.SOUND
+
+                when (reminder.mode) {
+                    ReminderMode.SOUND -> {
+
+                        val updated = reminder.copy(mode =   ReminderMode.VIBRATE, isTaken = false)
+                        viewModel.update(updated)
+
+                        cancelAlarm(requireContext(), reminder)
+                        setUpAlarm(requireContext(), updated)
+
+                    }
+                    ReminderMode.VIBRATE -> {
+
+                        val updated = reminder.copy(mode =   ReminderMode.SILENT, isTaken = true)
+                        viewModel.update(updated)
+                        cancelAlarm(requireContext(), reminder)
+
+                    }
+                    ReminderMode.SILENT -> {
+                        val updated = reminder.copy(mode =   ReminderMode.SOUND, isTaken = false)
+                        viewModel.update(updated)
+                        cancelAlarm(requireContext(), reminder)
+                        setUpAlarm(requireContext(), updated)
+                    }
                 }
-                val updated = reminder.copy(mode = newMode)
-                viewModel.update(updated)
+
+
             }
         )
         reminderRecyclerView.adapter = adapter
+
+
     }
 
 
