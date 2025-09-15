@@ -7,11 +7,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.medicinereminderapp.R
 import com.example.medicinereminderapp.databinding.ItemReminderBinding
 import com.example.medicinereminderapp.domain.model.Reminder
+import com.example.medicinereminderapp.domain.model.ReminderMode
 import com.example.medicinereminderapp.utils.DateTimeUtils
 
 class MedicineReminderAdapter(
     private val onEditReminder: (Reminder) -> Unit,
-    private val onDeleteReminder: (Reminder) -> Unit
+    private val onDeleteReminder: (Reminder) -> Unit,
+    private val onSoundMode: (Reminder) -> Unit,
 ) : RecyclerView.Adapter<MedicineReminderAdapter.MedicineReminderViewHolder>() {
 
     private var reminderList: List<Reminder> = emptyList()
@@ -41,8 +43,16 @@ class MedicineReminderAdapter(
                 remainderCard.setCardBackgroundColor(root.context.getColor(R.color.red))
             }
 
+            when (reminder.mode) {
+                ReminderMode.SILENT -> soundModeButton.setImageResource(R.drawable.ic_no_sound)
+                ReminderMode.VIBRATE -> soundModeButton.setImageResource(R.drawable.ic_mobile_vibrate)
+                ReminderMode.SOUND -> soundModeButton.setImageResource(R.drawable.ic_sound)
+            }
+
+
             editReminderButton.setOnClickListener { onEditReminder(reminder) }
             deleteReminderButton.setOnClickListener { onDeleteReminder(reminder) }
+            soundModeButton.setOnClickListener { onSoundMode(reminder) }
 
 
         }

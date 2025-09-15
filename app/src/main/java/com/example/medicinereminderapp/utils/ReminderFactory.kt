@@ -1,6 +1,7 @@
 package com.example.medicinereminderapp.utils
 
 import com.example.medicinereminderapp.domain.model.Reminder
+import com.example.medicinereminderapp.domain.model.ReminderMode
 import java.util.Date
 
 object ReminderFactory {
@@ -9,12 +10,14 @@ object ReminderFactory {
         name: String,
         dosage: String,
         date: Date,
-        isTaken: Boolean = false
+        isTaken: Boolean = false,
+        mode: ReminderMode = ReminderMode.SOUND // default
     ): Reminder = Reminder(
         id = id ?: 0,
         name = name,
         dosage = dosage,
         reminderDateTime = date,
-        isTaken = isTaken
+        isTaken = isTaken,
+        mode = mode
     )
 }

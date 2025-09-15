@@ -4,6 +4,7 @@
     <string name="floating_action_button">Floating action button</string>
     <string name="delete_reminder_icon">Delete Reminder Icon</string>
     <string name="edit_reminder_icon">Edit Reminder Icon</string>
+    <string name="sound_mode_icon">Sound Mode Icon</string>
     <string name="schedule_reminder_icon">Schedule Reminder Icon</string>
     <string name="save">Save</string>
     <string name="back_button">Back Button</string>

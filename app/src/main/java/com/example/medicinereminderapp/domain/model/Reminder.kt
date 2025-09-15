@@ -12,5 +12,13 @@ data class Reminder(
     val dosage: String,
     val reminderDateTime: Date,
     val isTaken: Boolean = false,
+    val mode: ReminderMode = ReminderMode.SOUND
 )
+
+
+enum class ReminderMode {
+    SOUND,
+    VIBRATE,
+    SILENT
+}
 

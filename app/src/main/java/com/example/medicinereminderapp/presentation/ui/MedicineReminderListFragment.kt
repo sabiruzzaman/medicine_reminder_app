@@ -8,6 +8,7 @@ import androidx.navigation.fragment.findNavController
 import com.example.medicinereminderapp.R
 import com.example.medicinereminderapp.databinding.FragmentMedicineReminderListBinding
 import com.example.medicinereminderapp.domain.model.Reminder
+import com.example.medicinereminderapp.domain.model.ReminderMode
 import com.example.medicinereminderapp.presentation.view_model.MedicineReminderViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,11 +34,20 @@ class MedicineReminderListFragment : Fragment(R.layout.fragment_medicine_reminde
     private fun setupRecycler() = with(binding) {
         adapter = MedicineReminderAdapter(
             onEditReminder = { reminder -> navigateToAddEdit(reminder) },
-            onDeleteReminder = { reminder -> viewModel.delete(reminder) }
+            onDeleteReminder = { reminder -> viewModel.delete(reminder) },
+            onSoundMode = { reminder ->
+                val newMode = when (reminder.mode) {
+                    ReminderMode.SOUND -> ReminderMode.VIBRATE
+                    ReminderMode.VIBRATE -> ReminderMode.SILENT
+                    ReminderMode.SILENT -> ReminderMode.SOUND
+                }
+                val updated = reminder.copy(mode = newMode)
+                viewModel.update(updated)
+            }
         )
         reminderRecyclerView.adapter = adapter
-
     }
+
 
     private fun setupClicks() = with(binding) {
         addReminderButton.setOnClickListener {
